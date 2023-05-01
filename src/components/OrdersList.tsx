@@ -60,7 +60,7 @@ const OrdersList: React.FC<iOrdersProps> = ({ orders, fetchOrders }) => {
 
   const createOrder = async (order) => {
     try {
-      await axios.post(`${apiURL}/orders`, order);
+      await axios.post(`${apiURL}/api/orders`, order);
       fetchOrders();
       closeModal(null, '');
     } catch (error) {
@@ -71,7 +71,7 @@ const OrdersList: React.FC<iOrdersProps> = ({ orders, fetchOrders }) => {
   const updateOrder = async (order) => {
     order._id = selectedOrder._id;
     try {
-      await axios.put(`${apiURL}/orders/${selectedOrder._id}`, order);
+      await axios.put(`${apiURL}/api/orders/${selectedOrder._id}`, order);
       fetchOrders();
       closeModal(null, '');
     } catch (error) {

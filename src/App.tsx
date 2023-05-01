@@ -30,7 +30,7 @@ function App() {
 
   const fetchOrders = async (filters: string = '') => {
     try {
-      const { data } = await axios.get(`${apiURL}/orders?${filters}`);
+      const { data } = await axios.get(`${apiURL}/api/orders?${filters}`);
 
       setData(data);
       setLoading(false);
@@ -118,11 +118,6 @@ function App() {
       >
         <Toolbar />
         {error && <Alert severity="error">{error}</Alert>}
-        {/* {loading && !error ? (
-          'loading...'
-        ) : (
-          <OrdersList orders={data} fetchOrders={fetchOrders} />
-        )} */}
         {loading && 'loading...'}
         {!loading && !error && <OrdersList orders={data} fetchOrders={fetchOrders} />}
       </Box>
