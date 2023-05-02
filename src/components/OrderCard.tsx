@@ -22,8 +22,8 @@ const OrderCard: React.FC<iOrderCardProps> = ({ order, updateOrder }) => {
     const setSource = async () => {
       
         try {          
-          const remoteSrc = await axios.get(order.photo);
-          setImgSrc(remoteSrc.data);
+          await axios.get(order.photo);
+          setImgSrc(order.photo);
         } catch (err) {}
       
     };
